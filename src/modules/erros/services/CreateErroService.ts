@@ -7,7 +7,7 @@ interface IRequestDTO {
   code: string;
 }
 
-export default class CreateUserService {
+export default class CreateErroService {
   public async execute({ description, code }: IRequestDTO): Promise<Erros> {
     const erro = await prisma.erros.create({
       data: {
