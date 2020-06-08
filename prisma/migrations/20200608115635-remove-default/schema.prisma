@@ -1,7 +1,7 @@
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url = "***"
 }
 
 generator client {
@@ -24,7 +24,7 @@ model Toner {
 }
 
 model Erros {
-  id  String @id @default(autoincrement())
+  id  String @id
   date DateTime @default(now())
   description String
   code String
