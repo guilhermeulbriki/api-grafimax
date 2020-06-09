@@ -3,6 +3,7 @@ import { container } from 'tsyringe';
 
 import ChangeTonerService from '../../../services/ChangeTonerService';
 import ListTonersService from '../../../services/ListTonersService';
+import GetFilteredTonersService from '../../../services/GetFilteredTonersService';
 
 export default class UsersController {
   public async create(request: Request, response: Response): Promise<Response> {
@@ -22,6 +23,19 @@ export default class UsersController {
     const litsToners = container.resolve(ListTonersService);
 
     const toners = await litsToners.execute();
+
+    return response.json(toners);
+  }
+
+  public async filter(request: Request, response: Response): Promise<Response> {
+    const { field, order } = request.query;
+
+    const filteredToners = container.resolve(GetFilteredTonersService);
+
+    const toners = await filteredToners.execute({
+      field: String(field),
+      order: String(order),
+    });
 
     return response.json(toners);
   }

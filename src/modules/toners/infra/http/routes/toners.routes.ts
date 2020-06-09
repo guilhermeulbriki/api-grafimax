@@ -9,6 +9,7 @@ const tonersController = new TonersController();
 usersRouter.use(ensureAuthentication);
 
 usersRouter.get('/', tonersController.show);
+usersRouter.get('/filter', tonersController.filter);
 usersRouter.post('/', tonersController.create);
 
 export default usersRouter;

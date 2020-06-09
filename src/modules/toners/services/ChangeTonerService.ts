@@ -1,9 +1,10 @@
 import { Toner } from '@prisma/client';
 import { inject, injectable } from 'tsyringe';
 import ITonerRepository from '../repositories/ITonerRepository';
+import { Colors } from '../dtos/IGetTheLastDTO';
 
 interface IRequestDTO {
-  color: string;
+  color: Colors;
   utilityCounter: number;
 }
 
@@ -15,7 +16,7 @@ export default class ChangeTonerService {
   ) {}
 
   public async execute({ color, utilityCounter }: IRequestDTO): Promise<Toner> {
-    const lastTrocaToner = await this.tonerRepository.getTheLast();
+    const lastTrocaToner = await this.tonerRepository.getTheLast(color);
 
     let copies = utilityCounter;
 

@@ -12,6 +12,6 @@ routes.use('/users', usersRouter);
 routes.use('/sessions', sessionsRouter);
 routes.use('/toners', tonersRouter);
 routes.use('/errors', errorsRouter);
-routes.use('/manutencoes', maintenancesRouter);
+routes.use('/maintenances', maintenancesRouter);
 
 export default routes;
