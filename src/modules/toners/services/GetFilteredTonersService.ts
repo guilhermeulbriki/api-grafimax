@@ -17,8 +17,6 @@ export default class GetFilteredTonersService {
   public async execute({ field, order }: IExecute): Promise<Toner[]> {
     let filteredToners: Toner[] = [];
 
-    console.log(field, order);
-
     switch (field) {
       case 'utilityCounter':
         if (order === 'desc') {
@@ -32,7 +30,7 @@ export default class GetFilteredTonersService {
         if (order === 'desc') {
           filteredToners = await this.tonerRepository.getByDateDesc();
         } else {
-          filteredToners = await this.tonerRepository.getByCopiesAsc();
+          filteredToners = await this.tonerRepository.getByDateAsc();
         }
         break;
 

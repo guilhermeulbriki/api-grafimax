@@ -96,6 +96,14 @@ class TonersRepository implements ITonerRepository {
 
     return toners;
   }
+
+  public async filterByColor(color: string): Promise<Toner[]> {
+    const toners = await this.prisma.toner.findMany({
+      where: { color },
+    });
+
+    return toners;
+  }
 }
 
 export default TonersRepository;
