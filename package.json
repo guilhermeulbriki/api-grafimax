@@ -6,7 +6,7 @@
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files",
     "dev:server": "ts-node-dev -r tsconfig-paths/register --inspect --transpileOnly --ignore-watch node_modules src/index.ts",
-    "start": "ts-node src/index.ts"
+    "start": "node dist/index.js"
   },
   "dependencies": {
     "@prisma/client": "^2.0.0-beta.7",
