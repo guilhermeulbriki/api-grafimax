@@ -11,7 +11,11 @@ import './shared/container';
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: 'https://grafimax.netlify.app/',
+  }),
+);
 app.use(express.json());
 app.use(routes);
 app.use(errors());
