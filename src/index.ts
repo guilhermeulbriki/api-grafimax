@@ -13,7 +13,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: 'https://grafimax.netlify.app/',
+    origin: 'https://grafimax.netlify.app',
   }),
 );
 app.use(express.json());
