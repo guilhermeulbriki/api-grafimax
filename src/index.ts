@@ -27,7 +27,13 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(cors());
+app.use(
+  cors({
+    origin: ['https://grafimax.herokuapp.com', 'http://localhost:3333'],
+    allowedHeaders: ['X-Requested-With', 'content-type'],
+    methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'PATCH', 'DELETE'],
+  }),
+);
 app.use(express.json());
 app.use(routes);
 app.use(errors());
