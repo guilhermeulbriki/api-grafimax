@@ -13,7 +13,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: 'http://localhost:3333',
+    origin: 'https://grafimax.herokuapp.com',
   }),
 );
 app.use(express.json());
